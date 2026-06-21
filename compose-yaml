@@ -1,0 +1,13 @@
+services:
+  battery-sentinel:
+    build:
+      context: "https://github.com/smcneece/battery-sentinel.git#main:addon"
+    image: battery-sentinel:local
+    container_name: battery-sentinel
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /home/abe/battery-sentinel/data:/data
+    environment:
+      - HA_BASE_URL=${HA_BASE_URL}
+      - HA_TOKEN=${HA_TOKEN}
