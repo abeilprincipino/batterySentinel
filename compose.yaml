@@ -4,7 +4,8 @@ services:
       context: "https://github.com/smcneece/battery-sentinel.git#main:addon"
     image: battery-sentinel:local
     container_name: battery-sentinel
-    network_mode: host
+    ports:
+      - 9000:8099
     restart: unless-stopped
     volumes:
       - /home/abe/battery-sentinel/data:/data
